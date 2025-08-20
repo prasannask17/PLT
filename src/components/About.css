@@ -1,0 +1,35 @@
+/* About Page Styling */
+.about-page {
+    background-color: black;
+    min-height: 100vh;
+  }
+  
+  /* Hero Section */
+  .about-hero {
+    background-color: red;
+    padding: 80px 0;
+  }
+  
+  /* Text Styling */
+  .container {
+    color: white;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .lead {
+    font-size: 1.5rem;  /* Adjust font size */
+    font-weight: 500;   /* Make text slightly bolder */
+    line-height: 1.8;   /* Increase line spacing */
+    color: white;       /* Ensure text is white for better visibility */
+}
+
+  

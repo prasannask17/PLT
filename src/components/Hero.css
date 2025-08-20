@@ -1,0 +1,38 @@
+.hero {
+  background-color: #000000; /* Dark Blue (Change as needed) */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+  
+  .hero-content {
+    max-width: 800px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .hero p {
+    font-size: 1.5rem;
+    margin: 15px 0;
+  }
+  
+  .btn-primary {
+    display: inline-block;
+    padding: 12px 24px;
+    background: red;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  

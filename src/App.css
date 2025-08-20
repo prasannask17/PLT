@@ -13,8 +13,120 @@
   }
 }
 
+/* Full-width header with no extra space */
+.header {
+  width: 100vw; /* Full screen width */
+  background-color: black; /* Dark header */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px; /* Adjust left & right padding */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.service-card {
+  background: #1e1e1e; /* Dark background */
+  color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.service-description {
+  font-size: 1rem;
+  color: #d0d0d0;
+}
+
+/* Loading Truck Animation */
+/* .loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.loading-truck {
+  font-size: 3rem;
+  animation: moveTruck 2s infinite linear;
+} */
+
+/* Loading Truck Animation */
+/* Loading Truck Animation */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full screen height */
+  background-color: black; /* Matches your theme */
+  color: rgb(253, 0, 0);
+}
+
+/* Truck Icon with Glow */
+.loading-truck {
+  font-size: 3rem;
+  animation: moveTruck 2s infinite linear;
+  text-shadow: 0 0 10px red, 0 0 20px darkred; /* Glowing effect */
+}
+
+/* Glowing Loading Text */
+.loading-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px red, 0 0 20px darkred; /* Glowing effect */
+  margin-top: 10px;
+}
+
+@keyframes moveTruck {
+  0% { transform: translateX(-50px); }
+  50% { transform: translateX(50px); }
+  100% { transform: translateX(-50px); }
+}
+
+@keyframes moveTruck {
+  0% { transform: translateX(-50px); }
+  50% { transform: translateX(50px); }
+  100% { transform: translateX(-50px); }
+}
+
+/* Left-aligned title */
+.title {
+  color: white;
+  text-align: left;
+}
+
+/* Navigation buttons */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-button {
+  color: white;
+  font-size: 24px; /* Make Home & Gallery bigger */
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #0000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,11 +140,25 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title-container {
+  transform: translateX(20px); /* Move 20px to the right */
+}
+
+.navbar {
+  background-color: #111 !important; /* Force black */
+  border-bottom: 3px solid red;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+h1, p, button {
+  animation: float 3s ease-in-out infinite;
+}
+
+h1 {
+  text-shadow: 0 0 10px red, 0 0 20px darkred;
 }
