@@ -4,36 +4,36 @@ import "./Testimonials.css";
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Rajesh Kumar",
-      company: "L&T Construction",
-      position: "Project Manager",
+      name: "Suresh Babu",
+      company: "Chennai Construction Ltd",
+      position: "Site Manager",
       image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
       rating: 5,
-      text: "Premalatha Transport has been our trusted partner for over 5 years. Their reliability and professionalism in handling our construction equipment transportation is unmatched."
+      text: "Premalatha Transport has been handling our construction material delivery for 3 years. Always on time and professional service."
     },
     {
-      name: "Priya Sharma",
-      company: "Industrial Solutions Ltd",
-      position: "Logistics Head",
+      name: "Meera Krishnan",
+      company: "Tamil Nadu Industries",
+      position: "Operations Manager",
       image: "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
       rating: 5,
-      text: "Exceptional service quality and on-time deliveries. Their team goes above and beyond to ensure our cargo reaches safely. Highly recommended for industrial transportation."
+      text: "Reliable transport service within Tamil Nadu. Their team ensures safe delivery of our industrial equipment."
     },
     {
-      name: "Mohammed Ali",
-      company: "Tech Manufacturing",
-      position: "Supply Chain Manager",
+      name: "Ravi Kumar",
+      company: "Bangalore Tech Solutions",
+      position: "Logistics Coordinator",
       image: "https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
       rating: 5,
-      text: "Professional, efficient, and cost-effective. Premalatha Transport has streamlined our logistics operations significantly. Their tracking system is excellent."
+      text: "Good service for our Chennai to Bangalore route. Professional drivers and well-maintained vehicles."
     },
     {
-      name: "Anita Reddy",
-      company: "Export House",
-      position: "Operations Director",
+      name: "Lakshmi Devi",
+      company: "Kerala Spices Co",
+      position: "Transport Manager",
       image: "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
       rating: 5,
-      text: "Outstanding customer service and attention to detail. They handle our sensitive equipment with utmost care. A reliable partner for all our transportation needs."
+      text: "Trusted partner for our spice transportation from Kerala to Tamil Nadu. Safe handling and timely delivery."
     }
   ];
 
@@ -43,7 +43,7 @@ const Testimonials = () => {
         <div className="row text-center mb-5">
           <div className="col-12">
             <h2 className="display-5 fw-bold mb-3">What Our Clients Say</h2>
-            <p className="lead">Trusted by businesses across industries</p>
+            <p className="lead">Trusted by businesses across South India</p>
           </div>
         </div>
         

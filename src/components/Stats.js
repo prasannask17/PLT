@@ -12,7 +12,7 @@ const Stats = () => {
   const finalValues = {
     years: 24,
     vehicles: 20,
-    clients: 150,
+    clients: 30,
     deliveries: 5000
   };
 

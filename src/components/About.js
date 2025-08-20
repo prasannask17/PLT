@@ -23,8 +23,8 @@ const About = () => {
             <p className="lead">
               We take pride in our long-standing partnership with L&T, catering to their
               transportation needs with professionalism and dedication. Our commitment
-              to excellence and customer satisfaction has been the driving force behind
-              our growth and success.
+              to excellence and customer satisfaction within South India has been the 
+              driving force behind our growth and success.
             </p>
             <p className="lead">
               Premalatha Transport is owned and managed by Mr. Joseph and Mrs. Joseph,
