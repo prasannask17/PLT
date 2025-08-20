@@ -29,6 +29,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Services from "./components/Services";
+import Contact from "./components/Contact";
+import Stats from "./components/Stats";
+import Testimonials from "./components/Testimonials";
 import "./App.css";
 
 function App() {
@@ -53,7 +57,16 @@ function App() {
             <Routes>
               <Route path="/" element={<Hero />} />
               <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
+            {/* Add Stats and Testimonials to home page */}
+            {window.location.pathname === "/" && (
+              <>
+                <Stats />
+                <Testimonials />
+              </>
+            )}
           </>
         )}
       </div>

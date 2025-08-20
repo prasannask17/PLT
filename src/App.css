@@ -162,3 +162,52 @@ h1, p, button {
 h1 {
   text-shadow: 0 0 10px red, 0 0 20px darkred;
 }
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc3545;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c82333;
+}
+
+/* Loading animation improvements */
+.loading-container {
+  background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+}
+
+.loading-truck {
+  filter: drop-shadow(0 0 20px red);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .btn-primary, .btn-secondary {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    max-width: 200px;
+  }
