@@ -1,214 +1,273 @@
-.App {
-  text-align: center;
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Custom Properties */
+:root {
+  --primary-color: #1a365d;
+  --secondary-color: #e53e3e;
+  --accent-color: #3182ce;
+  --text-dark: #2d3748;
+  --text-light: #718096;
+  --bg-light: #f7fafc;
+  --bg-dark: #1a202c;
+  --white: #ffffff;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --border-radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Full-width header with no extra space */
-.header {
-  width: 100vw; /* Full screen width */
-  background-color: black; /* Dark header */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 50px; /* Adjust left & right padding */
+/* Loading Animation */
+.loading-container {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-}
-
-.service-card {
-  background: #1e1e1e; /* Dark background */
-  color: #fff;
-  border-radius: 12px;
-  text-align: center;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
-}
-
-.service-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.service-description {
-  font-size: 1rem;
-  color: #d0d0d0;
-}
-
-/* Loading Truck Animation */
-/* .loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-}
-
-.loading-truck {
-  font-size: 3rem;
-  animation: moveTruck 2s infinite linear;
-} */
-
-/* Loading Truck Animation */
-/* Loading Truck Animation */
-.loading-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-dark) 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full screen height */
-  background-color: black; /* Matches your theme */
-  color: rgb(253, 0, 0);
+  z-index: 9999;
 }
 
-/* Truck Icon with Glow */
 .loading-truck {
-  font-size: 3rem;
-  animation: moveTruck 2s infinite linear;
-  text-shadow: 0 0 10px red, 0 0 20px darkred; /* Glowing effect */
+  font-size: 4rem;
+  animation: truckMove 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px var(--secondary-color));
 }
 
-/* Glowing Loading Text */
 .loading-text {
+  color: var(--white);
   font-size: 1.5rem;
-  font-weight: bold;
-  text-shadow: 0 0 10px red, 0 0 20px darkred; /* Glowing effect */
-  margin-top: 10px;
+  font-weight: 600;
+  margin-top: 20px;
+  text-shadow: 0 0 10px rgba(229, 62, 62, 0.5);
 }
 
-@keyframes moveTruck {
-  0% { transform: translateX(-50px); }
-  50% { transform: translateX(50px); }
-  100% { transform: translateX(-50px); }
+@keyframes truckMove {
+  0%, 100% { transform: translateX(-30px) scale(1); }
+  50% { transform: translateX(30px) scale(1.1); }
 }
 
-@keyframes moveTruck {
-  0% { transform: translateX(-50px); }
-  50% { transform: translateX(50px); }
-  100% { transform: translateX(-50px); }
-}
-
-/* Left-aligned title */
-.title {
-  color: white;
-  text-align: left;
-}
-
-/* Navigation buttons */
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-button {
-  color: white;
-  font-size: 24px; /* Make Home & Gallery bigger */
-  font-weight: bold;
-  text-decoration: none;
-  padding: 10px 20px;
-}
-
-.App-header {
-  background-color: #0000;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.title-container {
-  transform: translateX(20px); /* Move 20px to the right */
-}
-
-.navbar {
-  background-color: #111 !important; /* Force black */
-  border-bottom: 3px solid red;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-h1, p, button {
-  animation: float 3s ease-in-out infinite;
-}
-
-h1 {
-  text-shadow: 0 0 10px red, 0 0 20px darkred;
-}
-
-/* Smooth scrolling */
+/* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar for webkit browsers */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: var(--bg-light);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dc3545;
+  background: var(--secondary-color);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c82333;
+  background: #c53030;
 }
 
-/* Loading animation improvements */
-.loading-container {
-  background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+/* Utility Classes */
+.container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.loading-truck {
-  filter: drop-shadow(0 0 20px red);
+.section-padding {
+  padding: 100px 0;
 }
 
-/* Responsive improvements */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Styles */
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--secondary-color), #c53030);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.card-modern {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  overflow: hidden;
+  border: none;
+}
+
+.card-modern:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-fade-left {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+.animate-fade-right {
+  animation: fadeInRight 0.8s ease-out;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
+  .section-padding {
+    padding: 60px 0;
   }
   
-  .hero p {
-    font-size: 1.2rem;
+  .container-fluid {
+    padding: 0 15px;
   }
   
-  .btn-primary, .btn-secondary {
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    max-width: 200px;
+  .btn-modern {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Background Patterns */
+.bg-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(49, 130, 206, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(229, 62, 62, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Floating Elements */
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Modern Grid */
+.modern-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .modern-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
