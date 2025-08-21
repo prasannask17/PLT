@@ -27,83 +27,97 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`navbar navbar-expand-lg fixed-top transition-all ${
-      scrolled ? 'navbar-scrolled' : 'navbar-transparent'
-    }`}>
-      <div className="container-fluid">
-        <Link className="navbar-brand d-flex align-items-center" to="/">
-          <div className="logo-container">
-            <img src={pltLogo} alt="PLT Logo" className="navbar-logo" />
-          </div>
-          <div className="brand-text">
-            <span className="brand-name">PREMALATHA</span>
-            <span className="brand-subtitle">TRANSPORT</span>
-          </div>
-        </Link>
+    <>
+      <nav className={`navbar navbar-expand-lg fixed-top ${
+        scrolled ? 'navbar-scrolled' : 'navbar-transparent'
+      }`}>
+        <div className="container">
+          <Link className="navbar-brand" to="/">
+            <div className="brand-container">
+              <div className="logo-wrapper">
+                <img src={pltLogo} alt="PLT Logo" className="navbar-logo" />
+                <div className="logo-glow"></div>
+              </div>
+              <div className="brand-text">
+                <span className="brand-name">PREMALATHA</span>
+                <span className="brand-subtitle">TRANSPORT</span>
+              </div>
+            </div>
+          </Link>
 
-        <button 
-          className="navbar-toggler"
-          type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <i className={`bi ${mobileMenuOpen ? 'bi-x-lg' : 'bi-list'}`}></i>
-        </button>
+          <button 
+            className="navbar-toggler"
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon">
+              <i className={`bi ${mobileMenuOpen ? 'bi-x-lg' : 'bi-list'}`}></i>
+            </span>
+          </button>
 
-        <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
-          <ul className="navbar-nav ms-auto">
-            {navItems.map((item) => (
-              <li key={item.path} className="nav-item">
-                <Link 
-                  className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                  to={item.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <i className={`bi bi-${item.icon} me-2`}></i>
-                  {item.label}
+          <div className={`collapse navbar-collapse ${mobileMenuOpen ? 'show' : ''}`}>
+            <ul className="navbar-nav ms-auto">
+              {navItems.map((item) => (
+                <li key={item.path} className="nav-item">
+                  <Link 
+                    className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                    to={item.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <i className={`bi bi-${item.icon}`}></i>
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+              <li className="nav-item">
+                <Link className="nav-link quote-btn" to="/contact">
+                  <i className="bi bi-calculator"></i>
+                  <span>Get Quote</span>
                 </Link>
               </li>
-            ))}
-            <li className="nav-item">
-              <Link className="nav-link quote-btn" to="/contact">
-                <i className="bi bi-calculator me-2"></i>
-                Get Quote
-              </Link>
-            </li>
-          </ul>
+            </ul>
+          </div>
         </div>
-      </div>
+      </nav>
 
       <style jsx>{`
         .navbar {
-          padding: 15px 0;
+          padding: 1rem 0;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          backdrop-filter: blur(10px);
+          backdrop-filter: blur(20px);
           z-index: 1000;
+          border-bottom: 1px solid transparent;
         }
 
         .navbar-transparent {
-          background: rgba(26, 54, 93, 0.95);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          background: rgba(15, 23, 42, 0.8);
+          border-bottom-color: rgba(255, 255, 255, 0.1);
         }
 
         .navbar-scrolled {
-          background: rgba(26, 54, 93, 0.98);
-          padding: 10px 0;
-          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-          border-bottom: 2px solid var(--secondary-color);
+          background: rgba(15, 23, 42, 0.95);
+          padding: 0.75rem 0;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          border-bottom-color: var(--primary-color);
         }
 
-        .logo-container {
+        .brand-container {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .logo-wrapper {
+          position: relative;
           width: 50px;
           height: 50px;
           border-radius: 12px;
           overflow: hidden;
-          margin-right: 15px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
           transition: transform 0.3s ease;
         }
 
-        .logo-container:hover {
+        .logo-wrapper:hover {
           transform: scale(1.05);
         }
 
@@ -111,96 +125,191 @@ const Navbar = () => {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          border-radius: 12px;
+        }
+
+        .logo-glow {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          border-radius: 12px;
+        }
+
+        .logo-wrapper:hover .logo-glow {
+          opacity: 0.2;
         }
 
         .brand-text {
           display: flex;
           flex-direction: column;
-          line-height: 1.2;
+          line-height: 1.1;
         }
 
         .brand-name {
-          font-size: 1.4rem;
-          font-weight: 800;
+          font-size: 1.5rem;
+          font-weight: 900;
           color: var(--white);
-          letter-spacing: 1px;
+          letter-spacing: 0.05em;
+          background: linear-gradient(135deg, var(--white), var(--accent-color));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
 
         .brand-subtitle {
-          font-size: 0.9rem;
-          font-weight: 500;
-          color: var(--secondary-color);
-          letter-spacing: 2px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: var(--gray-400);
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
         }
 
         .navbar-toggler {
           border: none;
-          padding: 8px 12px;
-          background: rgba(229, 62, 62, 0.1);
+          padding: 0.5rem;
+          background: rgba(30, 64, 175, 0.1);
           border-radius: 8px;
-          color: var(--white);
-          font-size: 1.2rem;
+          transition: var(--transition);
         }
 
         .navbar-toggler:focus {
           box-shadow: none;
         }
 
+        .navbar-toggler:hover {
+          background: rgba(30, 64, 175, 0.2);
+        }
+
+        .navbar-toggler-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+        }
+
+        .navbar-toggler-icon i {
+          color: var(--white);
+          font-size: 1.25rem;
+        }
+
+        .navbar-nav {
+          gap: 0.5rem;
+        }
+
         .nav-link {
-          color: rgba(255, 255, 255, 0.9) !important;
+          display: flex !important;
+          align-items: center;
+          gap: 0.5rem;
+          color: rgba(255, 255, 255, 0.8) !important;
           font-weight: 500;
-          padding: 12px 20px !important;
+          padding: 0.75rem 1rem !important;
           border-radius: 8px;
-          transition: all 0.3s ease;
+          transition: var(--transition);
           position: relative;
-          margin: 0 5px;
+          text-decoration: none;
+        }
+
+        .nav-link::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+          transition: all 0.3s ease;
+          transform: translateX(-50%);
         }
 
         .nav-link:hover {
           color: var(--white) !important;
-          background: rgba(229, 62, 62, 0.1);
+          background: rgba(30, 64, 175, 0.1);
           transform: translateY(-2px);
+        }
+
+        .nav-link:hover::before {
+          width: 80%;
         }
 
         .nav-link.active {
           color: var(--white) !important;
-          background: linear-gradient(135deg, var(--secondary-color), #c53030);
-          box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+          background: linear-gradient(135deg, var(--primary-color), var(--light-blue));
+          box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        }
+
+        .nav-link.active::before {
+          width: 0;
         }
 
         .quote-btn {
-          background: linear-gradient(135deg, var(--secondary-color), #c53030) !important;
+          background: linear-gradient(135deg, var(--secondary-color), #ef4444) !important;
           color: var(--white) !important;
           font-weight: 600;
-          margin-left: 10px;
-          box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+          margin-left: 0.5rem;
+          box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
         }
 
         .quote-btn:hover {
+          background: linear-gradient(135deg, #ef4444, var(--secondary-color)) !important;
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+          box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .quote-btn::before {
+          display: none;
         }
 
         @media (max-width: 991px) {
           .navbar-collapse {
-            background: rgba(26, 54, 93, 0.98);
-            margin-top: 20px;
-            padding: 20px;
+            background: rgba(15, 23, 42, 0.98);
+            margin-top: 1rem;
+            padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+          }
+
+          .navbar-nav {
+            gap: 0.25rem;
           }
 
           .nav-link {
-            margin: 5px 0;
+            padding: 1rem !important;
+            justify-content: flex-start;
           }
 
           .quote-btn {
             margin-left: 0;
-            margin-top: 10px;
+            margin-top: 0.5rem;
+          }
+
+          .brand-name {
+            font-size: 1.25rem;
+          }
+
+          .brand-subtitle {
+            font-size: 0.7rem;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .brand-text {
+            display: none;
+          }
+
+          .logo-wrapper {
+            width: 40px;
+            height: 40px;
           }
         }
       `}</style>
-    </nav>
+    </>
   );
 };
 
